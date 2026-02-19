@@ -168,8 +168,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **YOUR_NAME**
 
-- GitHub: [@YOUR_GITHUB_USERNAME](https://github.com/umang48)
-- Website: [YOUR_WEBSITE.com](https://phptutorialpoints.in/)
+- GitHub: [@umang48](https://github.com/umang48)
+- Website: [https://phptutorialpoints.in/](https://phptutorialpoints.in/)
 - Email: your.email@example.com
 
 ## 🌟 Show Your Support
