@@ -51,7 +51,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_GITHUB_USERNAME/collab-whiteboard.git
+git clone https://github.com/umang48/collab-whiteboard.git
 
 # Navigate to project directory
 cd collab-whiteboard
@@ -168,8 +168,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **YOUR_NAME**
 
-- GitHub: [@YOUR_GITHUB_USERNAME](https://github.com/YOUR_GITHUB_USERNAME)
-- Website: [YOUR_WEBSITE.com](https://YOUR_WEBSITE.com)
+- GitHub: [@YOUR_GITHUB_USERNAME](https://github.com/umang48)
+- Website: [YOUR_WEBSITE.com](https://phptutorialpoints.in/)
 - Email: your.email@example.com
 
 ## 🌟 Show Your Support
@@ -209,6 +209,6 @@ For support, email your.email@example.com or open an issue on GitHub.
 
 ---
 
-Made with ❤️ by [YOUR_NAME](https://github.com/YOUR_GITHUB_USERNAME)
+Made with ❤️ by [Umang Prajapati](https://github.com/umang48)
 
 **Star ⭐ this repository if you find it helpful!**
