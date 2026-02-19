@@ -1,7 +1,32 @@
 {
   "name": "collab-whiteboard",
+  "version": "1.0.0",
+  "description": "Real-time collaborative whiteboard for drawing and visual collaboration with multiple users",
+  "author": "YOUR_NAME <your.email@example.com>",
+  "license": "MIT",
+  "homepage": "https://YOUR_WEBSITE.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_GITHUB_USERNAME/collab-whiteboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/YOUR_GITHUB_USERNAME/collab-whiteboard/issues"
+  },
+  "keywords": [
+    "whiteboard",
+    "collaborative",
+    "real-time",
+    "drawing",
+    "canvas",
+    "socket.io",
+    "react",
+    "konva",
+    "collaboration",
+    "visual-collaboration",
+    "online-whiteboard",
+    "drawing-app"
+  ],
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

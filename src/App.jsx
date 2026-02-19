@@ -21,6 +21,7 @@ function App() {
   const [connectionStatus, setConnectionStatus] = useState('connecting');
   const [fillColor, setFillColor] = useState('transparent');
   const [showStrokePanel, setShowStrokePanel] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
   
   const socketRef = useRef(null);
   const stageRef = useRef(null);
@@ -593,6 +594,16 @@ function App() {
             </div>
           )}
         </div>
+
+        <div className="toolbar-section">
+          <button 
+            onClick={() => setShowAbout(true)} 
+            className="about-btn"
+            title="About & Help"
+          >
+            ℹ️ About
+          </button>
+        </div>
       </div>
 
       <div className="canvas-container">
@@ -632,8 +643,81 @@ function App() {
         </Stage>
       </div>
 
+      {showAbout && (
+        <div className="modal-overlay" onClick={() => setShowAbout(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={() => setShowAbout(false)}>×</button>
+            
+            <h2>🎨 CollabBoard</h2>
+            <p className="modal-subtitle">Real-Time Collaborative Whiteboard</p>
+            
+            <div className="modal-section">
+              <h3>✨ Features</h3>
+              <ul>
+                <li>🖊️ Multiple drawing tools (Pen, Eraser, Line, Arrow, Rectangle, Circle, Text)</li>
+                <li>🎨 Customizable colors and stroke widths</li>
+                <li>↶↷ Undo/Redo support</li>
+                <li>👥 Real-time multi-user collaboration</li>
+                <li>👁️ Live cursor tracking</li>
+                <li>💾 Export to PNG</li>
+                <li>⌨️ Keyboard shortcuts</li>
+              </ul>
+            </div>
+
+            <div className="modal-section">
+              <h3>⌨️ Keyboard Shortcuts</h3>
+              <div className="shortcuts-grid">
+                <div><kbd>P</kbd> Pen</div>
+                <div><kbd>E</kbd> Eraser</div>
+                <div><kbd>L</kbd> Line</div>
+                <div><kbd>A</kbd> Arrow</div>
+                <div><kbd>R</kbd> Rectangle</div>
+                <div><kbd>C</kbd> Circle</div>
+                <div><kbd>T</kbd> Text</div>
+                <div><kbd>Ctrl+Z</kbd> Undo</div>
+                <div><kbd>Ctrl+Y</kbd> Redo</div>
+                <div><kbd>Ctrl+S</kbd> Export</div>
+              </div>
+            </div>
+
+            <div className="modal-section">
+              <h3>🛠️ Tech Stack</h3>
+              <p>Built with React, Konva, Socket.io, and Express</p>
+            </div>
+
+            <div className="modal-section developer-section">
+              <h3>👨‍💻 Developer</h3>
+              <p>
+                Created by <strong>YOUR_NAME</strong><br/>
+                <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener noreferrer">
+                  🔗 GitHub Profile
+                </a>
+                {' | '}
+                <a href="https://YOUR_WEBSITE.com" target="_blank" rel="noopener noreferrer">
+                  🌐 Website
+                </a>
+              </p>
+            </div>
+
+            <div className="modal-footer">
+              <p>Open Source • MIT License</p>
+              <a href="https://github.com/YOUR_GITHUB_USERNAME/collab-whiteboard" target="_blank" rel="noopener noreferrer">
+                ⭐ Star on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="info-banner">
-        💡 Shortcuts: P=Pen, E=Eraser, L=Line, A=Arrow, R=Rectangle, C=Circle, T=Text | Ctrl+Z=Undo, Ctrl+Y=Redo, Ctrl+S=Export
+        <div className="info-content">
+          <span className="shortcuts-info">
+            💡 Shortcuts: P=Pen, E=Eraser, L=Line, A=Arrow, R=Rectangle, C=Circle, T=Text | Ctrl+Z=Undo, Ctrl+Y=Redo, Ctrl+S=Export
+          </span>
+          <span className="developer-info">
+            Made with ❤️ by <a href="https://github.com/umang48" target="_blank" rel="noopener noreferrer">Umang Prajapati</a>
+          </span>
+        </div>
       </div>
     </div>
   );
