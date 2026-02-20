@@ -5,6 +5,9 @@ import './App.css';
 
 const useMockSocket = false;
 
+// Get Socket.io server URL from environment variable
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:3001';
+
 function App() {
   const [tool, setTool] = useState('pen');
   const [shapes, setShapes] = useState([]);
@@ -37,10 +40,16 @@ function App() {
         off: () => {},
       };
     } else {
-      socketRef.current = io('http://localhost:3001');
+      // Real Socket.io connection - uses environment variable
+      socketRef.current = io(SOCKET_URL, {
+        transports: ['websocket', 'polling'],
+        reconnectionAttempts: 5,
+        reconnectionDelay: 1000,
+      });
       
       socketRef.current.on('connect', () => {
         setConnectionStatus('connected');
+        console.log('Connected to server:', SOCKET_URL);
         socketRef.current.emit('join', { username });
       });
 

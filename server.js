@@ -7,11 +7,31 @@ const app = express();
 app.use(cors());
 
 const httpServer = createServer(app);
+
+// Configure Socket.io with proper CORS for production
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'https://collab-whiteboard.phptutorialpoints.in'
+];
+
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:5173",
-    methods: ["GET", "POST"]
-  }
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
+      
+      if (allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        console.log('Blocked origin:', origin);
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: ["GET", "POST"],
+    credentials: true
+  },
+  transports: ['websocket', 'polling']
 });
 
 const users = new Map();
@@ -58,7 +78,8 @@ io.on('connection', (socket) => {
   });
 });
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 httpServer.listen(PORT, () => {
-  console.log(`🚀 Socket.io server running on http://localhost:${PORT}`);
+  console.log(`🚀 Socket.io server running on port ${PORT}`);
+  console.log(`📡 Allowed origins:`, allowedOrigins);
 });
